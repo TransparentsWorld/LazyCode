@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/OfficeJob.iml" filepath="$PROJECT_DIR$/.idea/OfficeJob.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../aliens_invasion/.idea/aliens_invasion.iml" filepath="$PROJECT_DIR$/../aliens_invasion/.idea/aliens_invasion.iml" />
+    </modules>
+  </component>
+</project>
