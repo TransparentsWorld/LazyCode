@@ -59,9 +59,9 @@ if __name__ == '__main__':
     date: str = Util.generate_date_in_monthly_report(begin_date, end_date)
 
     # 从配置文件读取文件路径
-    cf = configparser.SafeConfigParser()
+    cf = configparser.ConfigParser()
     with codecs.open('./config.ini', 'r', encoding='utf-8') as f:
-        cf.readfp(f)
+        cf.read_file(f)
     secs = cf.sections()
     all_summary_path: str = cf.get('Util', 'all_summary_path')
     word_template_path: str = cf.get('Util', 'word_template_path')
