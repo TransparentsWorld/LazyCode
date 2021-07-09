@@ -1,6 +1,6 @@
 import os
 import re
-
+import time
 import requests
 from markdownify import markdownify
 from pyquery import PyQuery as pq
@@ -94,6 +94,7 @@ def download_wechat_article_convert_markdown(url, headers):
     article_md = markdownify(article_html)
     with open(article_save_path, "w", encoding="utf-8") as wechat_article:
         wechat_article.write(article_md)
+    time.sleep(15) # 延长抓取数据的时间，防止服务器反爬虫功能强制关闭网络连接。
 
 
 if __name__ == '__main__':
@@ -112,6 +113,11 @@ if __name__ == '__main__':
     pq_sum_html = pq(r.text)
     wechat_articles_url = get_wechat_article_link(pq_sum_html)
     wechat_articles_no = len(wechat_articles_url)
+
+    # 检测是否存在images文件夹，没有则新建一个以保存图片
+    wechat_images_directory: str = wechat_save_directory + '\\images'
+    if not os.path.exists(wechat_images_directory):
+        os.mkdir(wechat_images_directory)
 
     for count, wechat_article_url in enumerate(wechat_articles_url):
         print(f'正在下载:第{count + 1}篇，共{wechat_articles_no}篇')
